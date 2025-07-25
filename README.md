@@ -2,6 +2,27 @@
 
 A production-grade cryptocurrency trading bot framework that supports both live trading and backtesting from the same codebase.
 
+## Quick Start
+
+```bash
+# 1. Clone and setup
+git clone https://github.com/yourusername/ultsignaltrader.git
+cd ultsignaltrader
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+
+# 2. Configure
+cp .env.example .env
+# Edit .env with your settings
+
+# 3. Run backtest (no API keys needed)
+python main.py --mode backtest
+
+# 4. Run live trading (requires API setup)
+python main.py --mode live
+```
+
 ## Features
 
 - **Modular Architecture**: Easily pluggable strategies with clean separation of concerns
@@ -36,6 +57,37 @@ pip install -r requirements.txt
 cp .env.example .env
 # Edit .env with your API keys and preferences
 ```
+
+## Setting Up Binance API
+
+### For Testing (Recommended to start)
+
+1. Go to [Binance Testnet](https://testnet.binance.vision/)
+2. Create a testnet account
+3. Generate API keys for testing
+4. Set `BINANCE_TESTNET=true` in your `.env` file
+
+### For Live Trading
+
+⚠️ **WARNING**: Live trading involves real money. Test thoroughly on testnet first!
+
+1. Create a [Binance account](https://www.binance.com/)
+2. Complete identity verification (KYC)
+3. Go to [API Management](https://www.binance.com/en/my/settings/api-management)
+4. Create a new API key with the following permissions:
+   - **Enable Reading** ✓
+   - **Enable Spot Trading** ✓
+   - **Restrict IP access** (recommended for security)
+5. Copy your API Key and Secret Key to `.env`
+6. Set `BINANCE_TESTNET=false` in your `.env` file
+
+### Security Best Practices
+
+- Never commit your `.env` file to version control
+- Use IP whitelist restrictions on your API keys
+- Start with small amounts when live trading
+- Enable 2FA on your Binance account
+- Consider using a dedicated sub-account for trading
 
 ## Usage
 

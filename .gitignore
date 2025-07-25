@@ -51,7 +51,8 @@ coverage.xml
 # Environment variables
 .env
 .env.local
-.env.*.local
+.env.production
+.env.*
 
 # Logs
 logs/
@@ -70,3 +71,27 @@ Thumbs.db
 *.bak
 temp/
 tmp/
+
+# Trading specific
+*.key
+*.pem
+*.cert
+backtest_results/
+live_trades/
+positions/
+orders/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Documentation build
+docs/_build/
+docs/_static/
+docs/_templates/
